@@ -1,0 +1,46 @@
+<h1 class="text-center">library-management!</h1>
+<div class="container">
+    <form [formGroup]="libraryForm" (ngSubmit)="getDetails()">
+        <div class="mb-3">
+            <label class="form-label">Book Name:</label>
+            <input type="text" class="form-control" formControlName="bookName" id="bookName" placeholder="Book name" required >
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Author Name:</label>
+            <input type="text" class="form-control" formControlName="author" id="author" placeholder="Author name" required >
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Book Price:</label>
+            <input type="text" class="form-control" formControlName="price" id="price" placeholder="Price" required >
+        </div>
+        <div class="mb-3">
+            <label class="form-label">No of Copies:</label>
+            <input type="text" class="form-control" formControlName="copies" id="copies" placeholder="No of copies" required >
+        </div>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-end">
+            <button type="submit" class="btn btn-primary" [disabled]="!libraryForm.valid">Submit</button>
+            <button type="button" class="btn btn-secondary" (click)="cancelHandler()">Cancel</button>
+        </div>
+    </form>
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Book name</th>
+                    <th scope="col">Author name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Copies</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of libraryData">
+                    <td>{{ item.bookName }}</td>
+                    <td>{{ item.author }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.copies }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

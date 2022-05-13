@@ -1,0 +1,55 @@
+<h1 class="text-center">Template Driven Form</h1>
+<div class="container">
+    <form name="simpleForm" #simpleForm="ngForm" (ngSubmit)="getDetails(simpleForm.value)">
+        <div class="mb-3">
+            <label class="form-label">Name:</label>
+            <input type="text" class="form-control" name="name" placeholder="Enter your name" required [(ngModel)]="name"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Age:</label>
+            <input type="number" class="form-control" name="age" placeholder="Enter your age" [(ngModel)]="age"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Country:</label>
+            <input type="text" class="form-control" name="country" placeholder="Enter your country" [(ngModel)]="country"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Number:</label>
+            <input type="number" class="form-control" name="number" placeholder="Enter your moble number" required [(ngModel)]="number"/>
+        </div>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-end">
+            <button type="submit" class="btn btn-primary" [disabled]="!simpleForm.form.valid">Submit</button>
+            <button type="button" class="btn btn-secondary" (click)="getCancelHandler()">Cancel</button>
+        </div>
+    </form>
+    
+    <div class="container">
+        
+        <table class="table table-hover" *ngIf="simpleData.length !==0">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Country</th>
+                <th scope="col">Number</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of simpleData; let i= index">
+                <td>{{ item.name }}</td>
+                <td>{{ item.age }}</td>
+                <td>{{ item.country }}</td>
+                <td>{{ item.number }}</td>
+                <td>
+                    <div class="d-grid gap-2 d-sm-flex justify-content">
+                        <button type="button" class="btn btn-light btn-sm" (click)="onEditData(item,i)"><i class="bi bi-pencil"></i></button>
+                        <button type="button" class="btn btn-danger btn-sm" (click)="onDeleteData(i)"><i class="bi bi-trash3"></i></button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        
+        </table>
+    </div>
+</div>
