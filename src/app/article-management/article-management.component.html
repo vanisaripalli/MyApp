@@ -1,0 +1,52 @@
+<h1 class="text-center">{{ title }}</h1>
+<div class="container">
+    <form [formGroup]="articleForm" (ngSubmit)="getArticleData()">
+        <div class="mb-3">
+            <label class="form-label">Article Id:</label>
+            <input type="number" class="form-control" id="articleId" formControlName="articleId" placeholder="Article Id" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Article Name:</label>
+            <input type="text" class="form-control" id="articleName" formControlName="articleName" placeholder="Article Name" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Description:</label>
+            <input type="text" class="form-control" id="description" formControlName="description" placeholder="Description" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Written By:</label>
+            <input type="text" class="form-control" id="writtenBy" formControlName="writtenBy" placeholder="Article Written By" required>
+        </div>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-end">
+            <button type="submit" class="btn btn-primary" [disabled]="!articleForm.valid">Submit</button>
+            <button type="button" class="btn btn-secondary" (click)="cancelHandler()">cancel</button>
+        </div>
+    </form>
+    <div class="container">
+        <table class="table table-hover" *ngIf="articleData.length != 0">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Written By</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of articleData let i = index">
+                    <td>{{ item.articleName }}</td>
+                    <td>{{ item.articleId }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.writtenBy }}</td>
+                    <td>
+                        <div class="d-grid gap-2 d-sm-flex justify-content">
+                            <button type="button" class="btn btn-light btn-sm" (click)="editRecord(item,i)"><i class="bi bi-pencil"></i></button>
+                            <button type="button" class="btn btn-danger btn-sm" (click)="deleteRecord(i)"><i class="bi bi-trash3"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
