@@ -9,6 +9,7 @@ import { TemplateFormComponent } from './template/template.component';
 import { ArticleManagementComponent } from './article-management/article-management.component';
 import { SimpleFormComponent } from './simple-form/simple-form.component';
 import { LibraryManagementComponent } from './library-management/library-management.component';
+import { ListDataComponent } from './list-data/list-data.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LibraryManagementComponent } from './library-management/library-managem
     TemplateFormComponent,
     ArticleManagementComponent,
     SimpleFormComponent,
-    LibraryManagementComponent
+    LibraryManagementComponent,
+    ListDataComponent
   ],
   imports: [
     BrowserModule,

@@ -22,7 +22,7 @@
             <button type="button" class="btn btn-secondary" (click)="cancelHandler()">cancel</button>
         </div>
     </form>
-    <div class="container">
+    <!-- <div class="container">
         <table class="table table-hover" *ngIf="articleData.length != 0">
             <thead>
                 <tr>
@@ -48,5 +48,10 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div> -->
 </div>
+<app-list-data 
+[tableData] = "articleData"
+(onEditRecord) = "editRecord($event)"
+(onDeleteRecord) = "deleteRecord($event)"
+></app-list-data>

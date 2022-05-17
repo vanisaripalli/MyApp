@@ -58,13 +58,14 @@ export class ArticleManagementComponent implements OnInit {
     this.isEditing=false;
   }
 
-  editRecord(item: article,i: number) {
+  editRecord(event: any) {
+    console.log(event);
     this.isEditing=true;
-    this.editableIndex=i;
-    this.articleForm.controls['articleId'].setValue(item.articleId);
-    this.articleForm.controls['articleName'].setValue(item.articleName);
-    this.articleForm.controls['description'].setValue(item.description);
-    this.articleForm.controls['writtenBy'].setValue(item.writtenBy);
+    this.editableIndex=event.i;
+    this.articleForm.controls['articleId'].setValue(event.item.articleId);
+    this.articleForm.controls['articleName'].setValue(event.item.articleName);
+    this.articleForm.controls['description'].setValue(event.item.description);
+    this.articleForm.controls['writtenBy'].setValue(event.item.writtenBy);
   }
 
   deleteRecord(i: number) {
