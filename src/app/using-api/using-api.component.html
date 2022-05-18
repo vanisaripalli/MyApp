@@ -1,0 +1,45 @@
+<h1 class="text-center">using-API component works!</h1>
+<div class="container">
+    <form [formGroup]="apiForm" (ngSubmit)="getData()">
+        <div class="mb-3">
+            <label class="form-label">ID:</label>
+            <input type="number" class="form-control" formControlName="id" placeholder="Enter ID" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Title:</label>
+            <input type="text" class="form-control" formControlName="title" placeholder="Title here" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Body:</label>
+            <input type="text" class="form-control" formControlName="body" placeholder="Body" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">User ID:</label>
+            <input type="number" class="form-control" formControlName="userId" placeholder="Enter User ID" required>
+        </div>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-end">
+            <button type="submit" class="btn btn-primary" [disabled]="!apiForm.valid">Submit</button>
+            <button type="button" class="btn btn-secondary" (click)="cancelHandler()">Cancel</button>
+        </div>
+    </form>
+    <div class="container">
+        <table class="table table-hover" *ngIf="apiData.length != 0">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Body</th>
+                    <th scope="col">User ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of apiData">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.body }}</td>
+                    <td>{{ item.userId }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
