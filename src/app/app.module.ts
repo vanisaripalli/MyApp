@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { ArticleManagementComponent } from './article-management/article-managem
 import { SimpleFormComponent } from './simple-form/simple-form.component';
 import { LibraryManagementComponent } from './library-management/library-management.component';
 import { ListDataComponent } from './list-data/list-data.component';
+import { UsingAPIComponent } from './using-api/using-api.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +21,15 @@ import { ListDataComponent } from './list-data/list-data.component';
     ArticleManagementComponent,
     SimpleFormComponent,
     LibraryManagementComponent,
-    ListDataComponent
+    ListDataComponent,
+    UsingAPIComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
