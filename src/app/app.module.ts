@@ -12,6 +12,7 @@ import { SimpleFormComponent } from './simple-form/simple-form.component';
 import { LibraryManagementComponent } from './library-management/library-management.component';
 import { ListDataComponent } from './list-data/list-data.component';
 import { UsingAPIComponent } from './using-api/using-api.component';
+import { SeriesComponent } from './series/series.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UsingAPIComponent } from './using-api/using-api.component';
     SimpleFormComponent,
     LibraryManagementComponent,
     ListDataComponent,
-    UsingAPIComponent
+    UsingAPIComponent,
+    SeriesComponent
   ],
   imports: [
     BrowserModule,
