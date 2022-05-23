@@ -1,0 +1,46 @@
+<h1 class="text-center">Using Form Builder!</h1>
+<div class="container">
+    <form [formGroup]="seriesForm" (ngSubmit)="getDetails()">
+        <div class="mb-3">
+            <label class="form-label">Name of the Series:</label>
+            <input type="text" class="form-control" formControlName="seriesName" placeholder="Enter series name" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Type Of Series:</label>
+            <input type="text" class="form-control" formControlName="seriesType" placeholder="Enter Type of Series" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Seasons:</label>
+            <input type="number" class="form-control" formControlName="seasons" placeholder="No of Seasons" required>
+        </div>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-end">
+            <button type="submit" class="btn btn-primary" [disabled]="!seriesForm.valid">Submit</button>
+            <button type="button" class="btn btn-secondary" (click)="cancelHandler()">Cancel</button>
+        </div>
+    </form>
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <tr *ngIf="seriesData.length != 0">
+                    <th scope="col">Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Seasons</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of seriesData let i = index">
+                    <td>{{ item.seriesName }}</td>
+                    <td>{{ item.seriesType }}</td>
+                    <td>{{ item.seasons }}</td>
+                    <td>
+                        <div class="d-grid gap-2 d-sm-flex justify-content">
+                            <button type="button" class="btn btn-light btn-sm" (click)="onEdit(item, i)"><i class="bi bi-pencil"></i></button>
+                            <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(i)"><i class="bi bi-trash3"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
